@@ -3,21 +3,21 @@ layout: home
 
 hero:
   name: Markdown Preview
-  text: 노션처럼 읽기 좋은 문서 뷰어
-  tagline: 데스크탑·모바일 어디서든. Inter + Pretendard로 한글·영문 모두 깔끔하게.
+  text: A clean local viewer for your markdown docs
+  tagline: Notion-grade readability on desktop and mobile. Inter + Pretendard for Latin and Korean alike.
   actions:
     - theme: brand
-      text: Guides 보기
+      text: Read the guide
       link: /guides/
     - theme: alt
       text: GitHub
       link: https://github.com/ilwonyoon/markdown-preview
 
 features:
-  - title: 모바일/데스크탑 반응형
-    details: 햄버거 사이드바와 자동 목차. 같은 Wi-Fi에서 폰으로 바로 열어보기.
+  - title: Desktop and mobile
+    details: Hamburger sidebar, auto outline, LAN-exposed dev server. Open it on your phone over the same Wi-Fi.
   - title: Inter + Pretendard
-    details: 영문 Inter, 한글 Pretendard. 코드는 JetBrains Mono fallback.
-  - title: 어디서든 끌어다 쓰기
-    details: 'npx degit ilwonyoon/markdown-preview docs 한 줄로 신규 프로젝트에 복제.'
+    details: Inter for Latin body and UI, Pretendard Variable for Korean, JetBrains Mono fallback for code.
+  - title: Drop-in for any project
+    details: One line — npx degit ilwonyoon/markdown-preview docs-viewer — clones a self-contained viewer into any folder.
 ---

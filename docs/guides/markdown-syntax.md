@@ -1,26 +1,26 @@
 ---
-title: 마크다운 문법
+title: Markdown syntax
 ---
 
-# 마크다운 문법
+# Markdown syntax
 
-뷰어가 지원하는 모든 마크다운 요소의 렌더링 미리보기입니다. 디자인 변경 시 이 페이지로 검증합니다.
+A rendering preview of every markdown element the viewer supports. Use this page to verify design changes.
 
-## 헤딩 계층
+## Heading hierarchy
 
-### H3 — 소제목 예시
+### H3 — subheading example
 
-본문 텍스트는 Inter + Pretendard 조합으로 렌더링됩니다. 영문은 *Inter*, 한글은 **Pretendard Variable**이 자동으로 적용됩니다. 문장이 길어져도 `word-break: keep-all` 설정 덕분에 단어 단위로 줄바꿈됩니다.
+Body text is rendered with Inter + Pretendard. Latin glyphs come from *Inter*; Korean glyphs come from **Pretendard Variable**. Long lines wrap at word boundaries thanks to `word-break: keep-all`.
 
-#### H4 — 세부 항목
+#### H4 — minor section
 
-작은 헤딩도 본문과 명확히 구분됩니다.
+Smaller headings still read as distinct from body copy.
 
-## 강조와 인라인
+## Emphasis and inline
 
-이 문장은 **굵게**, *기울임*, ***둘 다***, ~~취소선~~, 그리고 `inline code` 스타일을 보여줍니다. 링크는 [이렇게](https://github.com/ilwonyoon/markdown-preview) 렌더링됩니다.
+This sentence demonstrates **bold**, *italic*, ***both***, ~~strikethrough~~, and `inline code`. Links look like [this](https://github.com/ilwonyoon/markdown-preview).
 
-## 코드 블록
+## Code blocks
 
 ```typescript
 interface User {
@@ -31,13 +31,13 @@ interface User {
 }
 
 function greet(user: User): string {
-  return `안녕하세요, ${user.name}님!`
+  return `Hello, ${user.name}!`
 }
 ```
 
 ```python
 def fibonacci(n: int) -> list[int]:
-    """피보나치 수열 생성"""
+    """Generate the Fibonacci sequence."""
     result = [0, 1]
     for _ in range(n - 2):
         result.append(result[-1] + result[-2])
@@ -46,79 +46,79 @@ def fibonacci(n: int) -> list[int]:
 print(fibonacci(10))
 ```
 
-## 리스트
+## Lists
 
-순서 없는 리스트:
+Unordered:
 
-- 첫 번째 항목
-- 두 번째 항목
-  - 중첩 항목 A
-  - 중첩 항목 B
-- 세 번째 항목
+- First item
+- Second item
+  - Nested A
+  - Nested B
+- Third item
 
-순서 있는 리스트:
+Ordered:
 
-1. 계획 단계
-2. 구현 단계
-3. 검증 단계
+1. Plan
+2. Implement
+3. Verify
 
-체크리스트:
+Task list:
 
-- [x] 폴더 셋업
-- [x] VitePress 초기화
-- [x] 폰트 적용
-- [ ] 모바일에서 확인
+- [x] Set up folder
+- [x] Initialize VitePress
+- [x] Apply fonts
+- [ ] Verify on mobile
 
-## 표
+## Tables
 
-| 도구             | 셋업 명령 수 | 모바일 UX | 한글 폰트     |
-| ---------------- | ------------ | --------- | ------------- |
-| VitePress        | 2            | 우수      | Inter4CJK     |
-| Astro Starlight  | 1            | 우수      | system        |
-| Docsify          | 1            | 보통      | 직접 설정     |
-| MkDocs Material  | 2            | 우수      | system        |
+| Tool             | Setup steps | Mobile UX | Korean fonts |
+| ---------------- | ----------- | --------- | ------------ |
+| VitePress        | 2           | Strong    | Inter4CJK    |
+| Astro Starlight  | 1           | Strong    | System       |
+| Docsify          | 1           | OK        | Manual       |
+| MkDocs Material  | 2           | Strong    | System       |
 
-## 인용구와 Callout
+## Blockquotes and callouts
 
-> "잘 된 디자인이란, 그 자체로 설명이 필요 없는 것이다."
+> "Good design is as little design as possible."
 > — Dieter Rams
 
-::: info 정보
-이런 박스는 부가 정보를 강조할 때 사용합니다.
+::: info Info
+Use this style to surface supporting context.
 :::
 
-::: tip 팁
-짧고 유용한 팁을 전달할 때 좋습니다.
+::: tip Tip
+Short, actionable hints belong here.
 :::
 
-::: warning 주의
-주의사항이나 잠재적 이슈를 알릴 때 사용합니다.
+::: warning Warning
+For caveats and likely pitfalls.
 :::
 
-::: danger 경고
-중요한 경고를 전달할 때 사용합니다.
+::: danger Danger
+For important risks that must be addressed.
 :::
 
-::: details 펼쳐보기
-숨겨진 내용을 클릭으로 펼칠 수 있습니다.
+::: details Click to expand
+Hidden content reveals on click.
 
 ```bash
-echo "펼쳐진 내용"
+echo "expanded"
 ```
 :::
 
-## 이미지
+## Images
 
-이미지는 마크다운 기본 문법으로 삽입합니다:
+Use the standard markdown image syntax:
 
 ```markdown
-![설명](./images/screenshot.png)
+![Description](./images/screenshot.png)
 ```
 
-## 수평선
+## Horizontal rule
 
-위와 아래를 구분할 때:
+Use one to separate sections clearly:
 
 ---
 
-수평선 아래 내용입니다.
+Content after the rule.

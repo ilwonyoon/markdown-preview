@@ -1,41 +1,41 @@
 ---
-title: 시작하기
+title: Getting started
 ---
 
-# 시작하기
+# Getting started
 
-이 사이트는 **마크다운 문서를 노션처럼** 읽기 위한 로컬 뷰어입니다. 모바일과 데스크탑 양쪽에서 잘 보이도록 설계되어 있습니다.
+A local viewer for reading markdown documentation, tuned for both desktop and mobile.
 
-## 빠른 사용법
+## Quick start
 
-새 프로젝트에 끌어다 쓰려면:
+To drop this viewer into any project:
 
 ```bash
-npx degit ilwonyoon/markdown-preview docs
-cd docs
+npx degit ilwonyoon/markdown-preview docs-viewer
+cd docs-viewer
 npm install
 npm run dev
 ```
 
-dev server가 LAN에 노출되어 있어 같은 Wi-Fi의 모바일에서도 바로 볼 수 있습니다.
+The dev server binds to `0.0.0.0`, so any device on the same Wi-Fi can reach it.
 
-## 로컬 IP 확인
+## Find your local IP
 
 ```bash
 npm run ip
-# 또는
+# or directly
 ipconfig getifaddr en0
 ```
 
-출력된 IP가 `192.168.1.42`라면 모바일에서 `http://192.168.1.42:5180`으로 접속합니다.
+If it prints `192.168.1.42`, open `http://192.168.1.42:5180` on your phone.
 
-::: tip 즐겨찾기 안정성
-포트는 `5180`으로 고정되어 있어 모바일에서 즐겨찾기로 등록해두면 매번 같은 주소로 접속할 수 있습니다. (Vite 기본 5173을 피해 다른 dev server와 충돌하지 않게 잡은 값입니다.)
+::: tip Stable bookmarks
+The port is pinned to `5180` (rather than the Vite default `5173`) so it does not collide with other dev servers, and your mobile bookmark stays valid across sessions.
 :::
 
-## 문서 추가
+## Add documents
 
-`docs/` 폴더 어디에든 `.md` 파일을 만들면 됩니다. 사이드바는 `.vitepress/config.ts`에서 관리합니다.
+Put `.md` files anywhere under `docs/`. Register them in the `sidebar` section of `docs/.vitepress/config.ts` to make them appear in the left nav.
 
 ```
 docs/

@@ -4,8 +4,8 @@ title: Notes
 
 # Notes
 
-자유 형식 메모와 작업 노트를 모아둡니다. 시간순보다는 주제별로 정리하는 편이 나중에 찾기 좋습니다.
+A space for free-form notes and working memos. Organize by topic — easier to find later than a strictly chronological log.
 
-## 목록
+## In this folder
 
-- [샘플 노트](/notes/sample) — 노트가 어떻게 렌더링되는지 보여주는 예시
+- [Sample note](/notes/sample) — a worked example showing how a note is rendered

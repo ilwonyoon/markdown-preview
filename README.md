@@ -1,34 +1,34 @@
 # Markdown Preview
 
-노션처럼 읽기 좋은 로컬 마크다운 문서 뷰어. **VitePress** 기반, **Inter + Pretendard** 폰트로 한글·영문 모두 깔끔하게. 데스크탑·모바일 반응형이고, 같은 Wi-Fi의 폰에서 로컬 IP로 바로 열어볼 수 있습니다.
+A local markdown documentation viewer with Notion-grade readability. Built on **VitePress**, styled with **Inter + Pretendard** for clean Latin and CJK rendering. Fully responsive for desktop and mobile, and exposes the dev server on your LAN so you can open it on your phone over the same Wi-Fi.
 
-## 새 프로젝트에 끌어다 쓰기
+## Use in a new project
 
-원하는 프로젝트 폴더에서 한 줄:
+Run one line in the project folder where you want the viewer:
 
 ```bash
 npx degit ilwonyoon/markdown-preview docs-viewer && cd docs-viewer && npm install
 ```
 
-`docs-viewer/`라는 폴더가 생기고, 그 안에 자기 만의 viewer 사본이 만들어집니다.
+This creates a `docs-viewer/` folder with its own independent copy of the viewer.
 
-## 문서 보기
+## View documents
 
 ```bash
 cd docs-viewer
 npm run dev
 ```
 
-- 데스크탑: <http://localhost:5180>
-- 모바일 (같은 Wi-Fi):
+- Desktop: <http://localhost:5180>
+- Mobile (same Wi-Fi):
   ```bash
-  npm run ip      # 맥 로컬 IP 출력 (예: 192.168.1.42)
+  npm run ip      # prints your Mac's local IP (e.g. 192.168.1.42)
   ```
-  폰 브라우저에서 `http://<출력된-IP>:5180` 접속. 즐겨찾기로 등록해두면 매번 같은 주소로 열립니다.
+  Open `http://<that-IP>:5180` on your phone. Bookmark it once and the address stays stable across sessions.
 
-## 문서 추가
+## Add documents
 
-`docs-viewer/docs/` 폴더에 `.md` 파일을 추가하면 됩니다. 사이드바에 노출하려면 `docs-viewer/docs/.vitepress/config.ts`의 `sidebar` 섹션에 한 줄 등록합니다.
+Drop `.md` files anywhere under `docs-viewer/docs/`. To show them in the sidebar, add an entry to the `sidebar` section in `docs-viewer/docs/.vitepress/config.ts`:
 
 ```ts
 sidebar: {
@@ -36,72 +36,71 @@ sidebar: {
     {
       text: 'Notes',
       items: [
-        { text: '인덱스', link: '/notes/' },
-        { text: '새 문서', link: '/notes/new-doc' },  // ← 추가
+        { text: 'Index', link: '/notes/' },
+        { text: 'New document', link: '/notes/new-doc' },  // ← add this
       ],
     },
   ],
 },
 ```
 
-### 기존 프로젝트 문서 폴더 연결
+### Link your project's existing docs folder
 
-프로젝트에 이미 `docs/` 폴더가 있다면 심볼릭 링크가 편합니다:
+If your project already has a `docs/` folder, symlink it in:
 
 ```bash
 cd docs-viewer/docs
 ln -s ../../docs project-docs
 ```
 
-그러면 `/project-docs/...` 경로로 viewer에 노출됩니다. (사이드바 등록은 동일하게 config에서)
+It then appears at `/project-docs/...`. Register the relevant pages in the sidebar config the same way.
 
-## 폴더 구조
+## Folder layout
 
 ```
 docs-viewer/
 ├── docs/
 │   ├── .vitepress/
-│   │   ├── config.ts          # 사이트 메타 + 사이드바
+│   │   ├── config.ts          # site meta + sidebar
 │   │   └── theme/
 │   │       ├── index.ts
 │   │       └── custom.css     # Inter + Pretendard + black theme
-│   ├── index.md               # 홈
+│   ├── index.md               # home
 │   ├── guides/
 │   └── notes/
 ├── package.json
 └── README.md
 ```
 
-## 스크립트
+## Scripts
 
-| 명령              | 설명                                |
-| ----------------- | ----------------------------------- |
-| `npm run dev`     | dev server (LAN 노출, 포트 5180)    |
-| `npm run build`   | 정적 사이트 빌드 (배포가 필요할 때) |
-| `npm run preview` | 빌드 결과 미리보기                  |
-| `npm run ip`      | 맥 로컬 IP 출력 (모바일 접속용)     |
+| Command           | Description                                |
+| ----------------- | ------------------------------------------ |
+| `npm run dev`     | dev server (LAN-exposed, port 5180)        |
+| `npm run build`   | build a static site (only if you deploy)   |
+| `npm run preview` | preview the built site                     |
+| `npm run ip`      | print your Mac's local IP (for mobile)     |
 
-## 디자인
+## Design
 
-- **폰트**: Inter (영문 본문/UI) + Pretendard Variable (한글), JetBrains Mono → SF Mono fallback (코드)
-- **테마**: 흑백 모노톤. 액센트는 모두 검정 (다크 모드는 자동 반전)
-- **본문**: 데스크탑 17px / 모바일 16px, line-height 1.75~1.8 (한글 가독성 보정)
-- **사이드바**: 300px, 다크 모드 / 로컬 검색 / 자동 목차 기본 제공
+- **Fonts**: Inter (Latin body / UI) + Pretendard Variable (Korean), with JetBrains Mono → SF Mono fallback for code
+- **Theme**: monochrome — pure black as the accent (light mode) / pure white (dark mode), no blue
+- **Body**: 17px on desktop, 16px on mobile, line-height 1.75–1.8 tuned for Korean readability
+- **Sidebar**: 300px, pinned left; dark mode, local search, auto outline — all built in
 
-## 디자인이 업데이트되면
+## When the upstream design updates
 
-각 프로젝트 viewer는 독립 사본이라 자동 동기화는 안 됩니다. 업데이트 받고 싶을 때:
+Each project's viewer is an independent copy, so updates do not propagate automatically. Easiest refresh:
 
 ```bash
-# 가장 단순한 방법: 새로 받고, 본인 docs/만 옮기기
-cd 내프로젝트
+cd my-project
 mv docs-viewer docs-viewer.old
 npx degit ilwonyoon/markdown-preview docs-viewer
-cp -r docs-viewer.old/docs/notes docs-viewer/docs/    # 본인 문서 복원
-cp docs-viewer.old/docs/.vitepress/config.ts docs-viewer/docs/.vitepress/  # 본인 사이드바
+cp -r docs-viewer.old/docs/notes docs-viewer/docs/                       # bring your docs back
+cp docs-viewer.old/docs/.vitepress/config.ts docs-viewer/docs/.vitepress/ # bring your sidebar back
 cd docs-viewer && npm install
 ```
 
 ---
 
-이 리포 자체에 디자인 변경 / 기능 추가가 필요하면 직접 수정 후 push 하시면 됩니다. `npx degit`은 항상 main 브랜치 최신을 가져옵니다.
+To change the design or add features for *all* future projects, edit this repo and push. `npx degit` always pulls the latest `main`.
